@@ -1,0 +1,7 @@
+# Normalize line endings to LF on commit (repo was developed on Windows).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
