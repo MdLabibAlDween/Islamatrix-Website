@@ -272,7 +272,7 @@ export default function AdminPage() {
       <>
       <div className="mx-auto max-w-[1400px] px-5 pt-6">
         <QuickBrandCard key={`brand-${syncId}`} sb={sb} current={data.settings.agency_name ?? ""} onChanged={reload} notify={notify} />
-        <SamplesModeCard key={`samples-${syncId}`} sb={sb} current={data.settings.hide_samples ?? ""} onChanged={() => { void reload(true); }} notify={notify} />
+        <SamplesModeCard key={`samples-${syncId}`} sb={sb} current={data.settings.hide_samples ?? ""} currentGallery={data.settings.hide_gallery ?? ""} onChanged={() => { void reload(true); }} notify={notify} />
       </div>
       <div className="mx-auto grid max-w-[1400px] gap-5 px-5 py-6 lg:grid-cols-[240px_1fr]">
         <aside className="lg:sticky lg:top-20 h-fit">
@@ -408,9 +408,11 @@ function QuickBrandCard({ sb, current, onChanged, notify }: TabProps & { current
 
 /* ============================== samples mode: show / hide portfolio ============================== */
 
-function SamplesModeCard({ sb, current, onChanged, notify }: TabProps & { current: string }) {
+function SamplesModeCard({ sb, current, currentGallery, onChanged, notify }: TabProps & { current: string; currentGallery?: string }) {
   const [saving, setSaving] = useState(false);
+  const [savingGallery, setSavingGallery] = useState(false);
   const hidden = (current ?? "").trim() === "1";
+  const galleryOff = (currentGallery ?? "").trim() === "1";
 
   async function flip() {
     if (saving) return;
@@ -425,21 +427,37 @@ function SamplesModeCard({ sb, current, onChanged, notify }: TabProps & { curren
     }
   }
 
+  async function flipGallery() {
+    if (savingGallery) return;
+    setSavingGallery(true);
+    const next = galleryOff ? "" : "1";
+    const { error } = await sb.from("site_settings").upsert({ key: "hide_gallery", value: next }, { onConflict: "key" });
+    setSavingGallery(false);
+    if (error) notify("err", error.message);
+    else {
+      notify("ok", next === "1" ? "Gallery view hidden — portfolio stays ✓" : "Gallery view visible ✓");
+      onChanged();
+    }
+  }
+
   return (
     <div className="mt-4 rounded-3xl border border-emerald-400/40 bg-gradient-to-r from-emerald-500/[0.12] via-teal-500/[0.08] to-cyan-500/[0.10] p-5 sm:p-6">
       <div className="flex flex-wrap items-center gap-3">
         <span className="grid h-10 w-10 place-items-center rounded-2xl bg-gradient-to-br from-emerald-500 via-teal-500 to-cyan-500 text-lg font-black text-black">👁</span>
         <div className="min-w-0 flex-1">
-          <h2 className="text-base sm:text-lg font-extrabold">Samples Mode — portfolio on / off</h2>
+          <h2 className="text-base sm:text-lg font-extrabold">Visibility — samples + gallery on / off</h2>
           <p className="mt-0.5 text-xs sm:text-sm text-zinc-400">
             Currently: <span className="font-bold text-white">{hidden ? "samples HIDDEN — site sells services only" : "samples VISIBLE across the site"}</span>
+            {" · "}
+            <span className="font-bold text-white">{galleryOff ? "gallery HIDDEN" : "gallery VISIBLE"}</span>
           </p>
         </div>
       </div>
-      <div className="mt-4">
-        <RowToggle label={saving ? "Saving…" : "Hide work samples site-wide"} value={hidden} onChange={() => { void flip(); }} />
+      <div className="mt-4 space-y-2">
+        <RowToggle label={saving ? "Saving…" : "Hide work samples site-wide (hides everything)"} value={hidden} onChange={() => { void flip(); }} />
+        <RowToggle label={savingGallery ? "Saving…" : "Hide gallery view only (portfolio stays)"} value={galleryOff} onChange={() => { void flipGallery(); }} />
       </div>
-      <p className="mt-2 text-[11px] text-zinc-500">Instant & reversible — nothing is deleted, samples just hide until you switch back.</p>
+      <p className="mt-2 text-[11px] text-zinc-500">Instant & reversible — nothing is deleted, sections just hide until you switch back. Full-hide wins over gallery-hide.</p>
     </div>
   );
 }

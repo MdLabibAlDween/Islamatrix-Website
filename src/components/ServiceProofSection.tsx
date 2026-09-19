@@ -27,6 +27,7 @@ export default function ServiceProofSection({
   calendlyUrl,
   flip,
   agencyName,
+  hideGallery,
 }: {
   service: Service;
   items: PortfolioItem[];
@@ -34,6 +35,7 @@ export default function ServiceProofSection({
   calendlyUrl: string;
   flip?: boolean;
   agencyName?: string;
+  hideGallery?: boolean;
 }) {
   const hero = items.find((i) => i.is_featured) ?? items[0];
   const rest = items.filter((i) => i !== hero).slice(0, 4);
@@ -89,7 +91,7 @@ export default function ServiceProofSection({
         </div>
 
         {/* WORK SAMPLES GALLERY — 3 slots, click for large view */}
-        <WorkGallery service={service} gallery={gallery} />
+        {!hideGallery && <WorkGallery service={service} gallery={gallery} />}
       </div>
     </section>
   );

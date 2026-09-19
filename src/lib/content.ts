@@ -153,6 +153,13 @@ export function samplesHidden(s: Record<string, string>): boolean {
   return (s["hide_samples"] ?? "").trim() === "1";
 }
 
+/** "No gallery" mode: true when the admin turned on hide_gallery ("1").
+ * Hides only the gallery-view section (WorkGallery), portfolio hero/cards stay.
+ * Master switch hide_samples still hides everything including gallery. */
+export function galleryHidden(s: Record<string, string>): boolean {
+  return (s["hide_gallery"] ?? "").trim() === "1";
+}
+
 /** Halal / Muslim-only positioning FAQ — always present (injected if the DB lacks it). */
 export const HALAL_FAQ = {
   id: "halal-muslim-only",

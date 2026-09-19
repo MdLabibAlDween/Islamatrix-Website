@@ -6,7 +6,7 @@ import BookingSection from "@/components/BookingSection";
 import { FaqAccordion, Footer } from "@/components/Sections";
 import SectionHead from "@/components/SectionHead";
 import { HeroSample, SmallCard, WorkGallery } from "@/components/ServiceProofSection";
-import { getSiteContent, setting, getAgencyName, samplesHidden } from "@/lib/content";
+import { getSiteContent, setting, getAgencyName, samplesHidden, galleryHidden } from "@/lib/content";
 import { parseGallery } from "@/lib/gallery";
 import { SITE, applyAgencyName } from "@/lib/site";
 import { FALLBACK_SERVICES } from "@/lib/fallback-data";
@@ -60,6 +60,7 @@ export default async function ServicePage({
   const email = setting(s, "contact_email", SITE.contactEmail);
   const logoUrl = s.logo_url?.trim() || SITE.logo;
   const hideSamples = samplesHidden(s);
+  const hideGallery = galleryHidden(s);
 
   const samples = portfolio.filter((p) => p.service_slug === slug);
   const hero = samples.find((p) => p.is_featured) ?? samples[0];
@@ -211,7 +212,9 @@ export default async function ServicePage({
                 ))}
               </div>
             )}
-            <WorkGallery service={service} gallery={parseGallery(s[`gallery:${slug}`], slug)} hideHeader />
+            {!hideGallery && (
+              <WorkGallery service={service} gallery={parseGallery(s[`gallery:${slug}`], slug)} hideHeader />
+            )}
           </div>
         )}
 

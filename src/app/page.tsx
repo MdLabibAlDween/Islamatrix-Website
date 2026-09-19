@@ -9,7 +9,7 @@ import { Process } from "@/components/Showcase";
 import { FaqSection, Footer, Testimonials } from "@/components/Sections";
 import BookingSection from "@/components/BookingSection";
 import PricingSection from "@/components/Pricing";
-import { getSiteContent, parseStats, parseSteps, setting, samplesHidden } from "@/lib/content";
+import { getSiteContent, parseStats, parseSteps, setting, samplesHidden, galleryHidden } from "@/lib/content";
 import { parseGallery, galleryKey } from "@/lib/gallery";
 import { SITE } from "@/lib/site";
 
@@ -33,6 +33,8 @@ export default async function Home() {
   // No-samples mode (Admin → Site → Work samples visibility): hide every
   // portfolio section + Samples menu. Default off = samples visible.
   const hideSamples = samplesHidden(s);
+  // Gallery-only mode: hides just the WorkGallery strip, portfolio hero/cards stay.
+  const hideGallery = galleryHidden(s);
 
   const byService = (slug: string) =>
     portfolio.filter((p) => p.service_slug === slug);
@@ -129,6 +131,7 @@ export default async function Home() {
             calendlyUrl={calendlyUrl}
             flip={i % 2 === 1}
             agencyName={agencyName}
+            hideGallery={hideGallery}
           />
         ))}
       </div>

@@ -61,7 +61,7 @@ export default function Navbar({ calendlyUrl, agencyName, logoUrl, hideSamples }
         <Link href="/#top" className="flex shrink-0 items-center self-center leading-none" aria-label="Home">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={logoUrl} alt={`${agencyName} logo`} className="block h-9 sm:h-10 md:h-10 w-auto max-w-[200px] sm:max-w-[240px] object-contain align-middle" />
+            <img src={logoUrl} alt={`${agencyName} logo`} className="relative -top-[3px] block h-9 sm:h-10 md:h-10 w-auto max-w-[200px] sm:max-w-[240px] object-contain align-middle" />
           ) : (
             <span className="font-bold tracking-tight leading-none"> {agencyName}</span>
           )}
