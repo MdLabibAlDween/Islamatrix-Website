@@ -58,16 +58,16 @@ export default function Navbar({ calendlyUrl, agencyName, logoUrl, hideSamples }
   return (
     <header className="fixed inset-x-4 top-4 md:top-6 z-50 nav-drop">
       <div className={`mx-auto w-full md:w-max rounded-full px-4 py-3 sm:px-6 md:px-8 flex items-center justify-between gap-2 md:justify-start md:gap-8 transition-all duration-500 ${dark ? "bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.65)]" : "glass shadow-[0_0_40px_rgba(167,139,250,0.12)]"}`}>
-        <Link href="/#top" className="flex shrink-0 items-center gap-2" aria-label="Home">
+        <Link href="/#top" className="flex shrink-0 items-center self-center leading-none" aria-label="Home">
           {logoUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={logoUrl} alt={`${agencyName} logo`} className="h-10 sm:h-11 md:h-12 w-auto max-w-[200px] sm:max-w-[240px] object-contain" />
+            <img src={logoUrl} alt={`${agencyName} logo`} className="block h-9 sm:h-10 md:h-10 w-auto max-w-[200px] sm:max-w-[240px] object-contain align-middle" />
           ) : (
-            <span className="font-bold tracking-tight">{agencyName}</span>
+            <span className="font-bold tracking-tight leading-none"> {agencyName}</span>
           )}
         </Link>
 
-        <nav className="hidden md:flex items-center gap-0.5">
+        <nav className="hidden md:flex items-center self-center">
           {isHome ? (
             links.map(([label, href]) => (
               <a
@@ -89,7 +89,7 @@ export default function Navbar({ calendlyUrl, agencyName, logoUrl, hideSamples }
           )}
         </nav>
 
-        <div className="hidden shrink-0 md:block">
+        <div className="hidden shrink-0 self-center md:flex md:items-center">
           <a href={calendlyUrl} target="_blank" rel="noreferrer" className="inline-block px-5 py-2.5 text-sm font-bold rounded-full bg-white text-black transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]">
             Book Call ↗
           </a>
