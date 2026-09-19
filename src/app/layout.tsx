@@ -13,12 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const BASE_TITLE = "Islamatrix | Halal Business Solutions for Muslim Businessmen";
+const BASE_TITLE = "Islamatrix | Business Solutions for Muslim Businessmen";
 const BASE_DESC =
-  "Islamatrix offers Halal business solutions exclusively for Muslim businessmen — video editing, web development, lead generation, automation, marketing, SEO, design and copywriting, all strictly according to Shariah.";
+  "Islamatrix offers business solutions exclusively for Muslim businessmen — video editing, web development, lead generation, automation, marketing, SEO, design and copywriting, all strictly according to Shariah.";
 const BASE_KEYWORDS = [
-  "halal business solutions",
-  "halal digital agency for muslim businessmen",
+  "business solutions for muslim businessmen",
+  "digital agency for muslim businessmen",
   "muslim business services",
   "shariah compliant business services",
   "islamic shariah video editing",

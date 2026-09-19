@@ -61,7 +61,7 @@ const team = [
 ];
 
 const faqs = [
-  { question: "Do you offer Halal business solutions? Who can work with you?", answer: "Yes. Islamatrix offers Halal business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah - from content and marketing to design, automation, and delivery.", order_index: 0, is_active: true },
+  { question: "Who can work with you?", answer: "We work exclusively with Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah - from content and marketing to design, automation, and delivery.", order_index: 0, is_active: true },
   { question: "How does booking a call work?", answer: "Click the booking button and choose an available 30-minute time slot. During the call, we will discuss your goals, current challenges, and the services that may be useful. You will not be required to purchase anything during the call.", order_index: 1, is_active: true },
   { question: "Does your video editing follow Islamic Shariah?", answer: "Yes. Our video editing service follows Islamic Shariah, including no music where requested. We can also follow specific content, visual, and delivery guidelines provided by the client before production begins.", order_index: 2, is_active: true },
   { question: "Will I have to deal with multiple freelancers?", answer: "No. Our agency manages every work for you, all in one place. You share your goal once with your point of contact, and we handle the planning, execution, and delivery.", order_index: 3, is_active: true },
@@ -88,15 +88,15 @@ const settings = {
   // "1" = no-samples mode (hide all work samples site-wide). Default "" = samples visible.
   hide_samples: "",
   agency_name: "Islamatrix",
-  footer_text: "Islamatrix offers Halal business solutions exclusively for Muslim businessmen. Islamatrix is a digital growth agency helping businesses build, market, automate, and protect their online presence through fully managed creative, technical, and marketing services, all in one place.",
+  footer_text: "Islamatrix offers business solutions exclusively for Muslim businessmen. Islamatrix is a digital growth agency helping businesses build, market, automate, and protect their online presence through fully managed creative, technical, and marketing services, all in one place.",
   contact_email: "labib@labibaldween.com",
   calendly_url: "https://calendly.com/mdlabibaldween/30min",
-  hero_eyebrow: "Halal Business Solutions for Muslim Businessmen - strictly according to Shariah",
-  hero_title: "One Halal Digital Growth Agency for Muslim Businesses",
-  hero_highlight: "Halal Digital Growth Agency",
+  hero_eyebrow: "Business Solutions for Muslim Businessmen - strictly according to Shariah",
+  hero_title: "One Digital Growth Agency for Muslim Businesses",
+  hero_highlight: "Digital Growth Agency",
   hero_creative: "Let's Bring Life To Your Business",
-  hero_subtitle: "Islamatrix offers Halal business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — every work managed for you, all in one place.",
-  hero_trust: "Talk with a manager, explain your goals, and get a practical Halal plan for your next stage of growth.",
+  hero_subtitle: "Islamatrix offers business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — every work managed for you, all in one place.",
+  hero_trust: "Talk with a manager, explain your goals, and get a practical plan for your next stage of growth.",
   stats_config: JSON.stringify([
     { value: "9", label: "Specialized Services" },
     { value: "24h", label: "Response Time" },
@@ -105,7 +105,7 @@ const settings = {
   sec_services_eyebrow: "Our Digital Business Services",
   sec_services_title: "Everything Your Business Needs to Grow Online",
   sec_services_highlight: "Grow Online",
-  sec_services_sub: "From content production to lead generation, Islamatrix brings Halal skills, strategy, and execution for Muslim businesses under one roof — strictly according to Shariah.",
+  sec_services_sub: "From content production to lead generation, Islamatrix brings skills, strategy, and execution for Muslim businesses under one roof — strictly according to Shariah.",
   sec_pricing_eyebrow: "Pricing",
   sec_pricing_title: "Honest estimate pricing.",
   sec_pricing_highlight: "estimate pricing.",
@@ -134,9 +134,9 @@ const settings = {
   sec_testimonials_eyebrow: "What clients say",
   sec_testimonials_title: "What our clients say.",
   sec_testimonials_highlight: "clients say.",
-  sec_booking_title: "Ready to Grow Your Halal Business?",
-  sec_booking_highlight: "Halal Business?",
-  sec_booking_sub: "Islamatrix offers Halal business solutions exclusively for Muslim businessmen - tell us what your business needs. We will help you choose the right service, define the next steps, and create a clear plan without unnecessary complexity.",
+  sec_booking_title: "Ready to Grow Your Business?",
+  sec_booking_highlight: "Your Business?",
+  sec_booking_sub: "Islamatrix offers business solutions exclusively for Muslim businessmen - tell us what your business needs. We will help you choose the right service, define the next steps, and create a clear plan without unnecessary complexity.",
   sec_faq_eyebrow: "Good to know",
   sec_faq_title: "Frequently asked questions.",
   sec_faq_highlight: "questions.",
@@ -145,7 +145,7 @@ const settings = {
   about_name_highlight: "Labib Al Dween",
   about_role: "Founder & CEO",
   about_portfolio_url: "https://labibaldween.com",
-  about_intro: "Islamatrix offers Halal business solutions exclusively for Muslim businessmen. Islamatrix is a digital growth agency covering video editing, web development, lead generation, automation, marketing, design, SEO, and copywriting. You share your goal once — our agency plans, executes, and delivers everything, all in one place, with a single point of contact from start to finish.",
+  about_intro: "Islamatrix offers business solutions exclusively for Muslim businessmen. Islamatrix is a digital growth agency covering video editing, web development, lead generation, automation, marketing, design, SEO, and copywriting. You share your goal once — our agency plans, executes, and delivers everything, all in one place, with a single point of contact from start to finish.",
   about_step1_title: "Book a call",
   about_step1_desc: "Pick a time that suits you for a free 30-minute strategy call. No commitment, no pressure.",
   about_step2_title: "Talk to the Founder or a Manager",
@@ -153,8 +153,8 @@ const settings = {
   about_step3_title: "We manage everything",
   about_step3_desc: "Our agency plans, executes, and delivers your complete work — managed for you, all in one place.",
   favicon_url: "/Favicon.png",
-  meta_title: "Islamatrix | Halal Business Solutions for Muslim Businessmen",
-  meta_description: "Islamatrix offers Halal business solutions exclusively for Muslim businessmen - video editing, web development, lead generation, automation, marketing, SEO, design and copywriting, all strictly according to Shariah — every work managed for you, all in one place.",
+  meta_title: "Islamatrix | Business Solutions for Muslim Businessmen",
+  meta_description: "Islamatrix offers business solutions exclusively for Muslim businessmen - video editing, web development, lead generation, automation, marketing, SEO, design and copywriting, all strictly according to Shariah — every work managed for you, all in one place.",
   meta_keywords: "digital growth agency, islamic shariah video editing, web design and development, lead generation and CRM services for small business, business process automation, social media management, Meta Ads management, local SEO services, website copywriting, email marketing",
   privacy_updated: "September 2026",
   privacy_body: `## What we collect
@@ -188,7 +188,7 @@ If this policy changes, the updated version will be published on this page with 
 Questions about privacy? Email {{email}}.`,
   terms_updated: "September 2026",
   terms_body: `## Services and quotes
-Islamatrix provides Halal creative, technical, and marketing services exclusively for Muslim businessmen, including video editing, web development, lead generation and CRM, business automation, social media management, paid advertising, design, SEO, and copywriting. Every project starts with a written scope: the agreed deliverables, timeline, pricing, revision policy, and payment schedule. No work begins until you approve that scope.
+Islamatrix provides creative, technical, and marketing services exclusively for Muslim businessmen, including video editing, web development, lead generation and CRM, business automation, social media management, paid advertising, design, SEO, and copywriting. Every project starts with a written scope: the agreed deliverables, timeline, pricing, revision policy, and payment schedule. No work begins until you approve that scope.
 
 ## Strategy calls
 Strategy calls are free and carry no purchase obligation. Advice shared on a call is general guidance only — it becomes a commitment only when written into an agreed project scope.

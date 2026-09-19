@@ -1,6 +1,6 @@
-# Islamatrix — Halal Business Solutions Website
+# Islamatrix — Business Solutions Website
 
-Production website for **Islamatrix**, a Halal digital growth agency for Muslim businesses.
+Production website for **Islamatrix**, a digital growth agency for Muslim businesses.
 Built with Next.js (App Router), Supabase (content + admin), and EmailJS (contact form).
 The site renders from Supabase when configured and falls back to built-in content otherwise,
 so it works out of the box and lights up fully once env vars are set.

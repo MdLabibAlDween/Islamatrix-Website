@@ -129,11 +129,11 @@ export async function getSiteContent(): Promise<SiteContent> {
       managers: managers.length ? managers : fb.managers,
       portfolio: portfolio.length ? portfolio : fb.portfolio,
       testimonials: testimonials.length ? testimonials : fb.testimonials,
-      faqs: ensureHalalFaq(faqs.length ? faqs : fb.faqs),
+      faqs: ensureMuslimFaq(faqs.length ? faqs : fb.faqs),
       details,
     });
   } catch {
-    return brandSiteContent({ ...fb, faqs: ensureHalalFaq(fb.faqs) });
+    return brandSiteContent({ ...fb, faqs: ensureMuslimFaq(fb.faqs) });
   }
 }
 
@@ -160,24 +160,45 @@ export function galleryHidden(s: Record<string, string>): boolean {
   return (s["hide_gallery"] ?? "").trim() === "1";
 }
 
-/** Halal / Muslim-only positioning FAQ — always present (injected if the DB lacks it). */
-export const HALAL_FAQ = {
-  id: "halal-muslim-only",
-  question: "Do you offer Halal business solutions? Who can work with you?",
+/** Removes the word "Halal" (any case) from any text, including values loaded
+ * from the database, so old Supabase rows can't reintroduce it to the site.
+ * Keeps "Muslim businessmen / Muslim businesses" positioning intact. */
+export function stripHalalWord(text: string): string {
+  if (!text) return text;
+  return text
+    .replace(/\bhalal\b/gi, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,?.!;:])/g, "$1")
+    .replace(/\(\s+/g, "(")
+    .replace(/\s+\)/g, ")")
+    .trim();
+}
+
+/** Muslim-only positioning FAQ — always present (injected if the DB lacks it). */
+export const MUSLIM_FAQ = {
+  id: "muslim-only",
+  question: "Who can work with you?",
   answer:
-    "Yes. Islamatrix offers Halal business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — from content and marketing to design, automation, and delivery.",
+    "We work exclusively with Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — from content and marketing to design, automation, and delivery.",
   order_index: 0,
   is_active: true,
 } as Faq;
 
-/** Prepends the Halal FAQ when the list has no Muslim-only Shariah entry. */
-export function ensureHalalFaq(faqs: Faq[]): Faq[] {
+/** Prepends the Muslim FAQ when the list has no Muslim-only Shariah entry. */
+export function ensureMuslimFaq(faqs: Faq[]): Faq[] {
   const has = faqs.some((f) =>
-    /halal/i.test(`${f.question} ${f.answer}`) &&
     /muslim/i.test(`${f.question} ${f.answer}`)
   );
-  if (has) return faqs;
-  return [{ ...HALAL_FAQ }, ...faqs];
+  if (has) return faqs.map((f) => ({
+    ...f,
+    question: stripHalalWord(f.question),
+    answer: stripHalalWord(f.answer),
+  }));
+  return [{ ...MUSLIM_FAQ }, ...faqs.map((f) => ({
+    ...f,
+    question: stripHalalWord(f.question),
+    answer: stripHalalWord(f.answer),
+  }))];
 }
 
 /**
@@ -191,7 +212,8 @@ export function brandSiteContent(c: SiteContent): SiteContent {
   const agency = getAgencyName(c.settings);
   // Even on the default brand, migrate legacy "Lagency" text to "Islamatrix"
   // (applyAgencyName handles this when agency is the default).
-  const b = (t: string) => applyAgencyName(t ?? "", agency);
+  // stripHalalWord ensures old DB rows containing "Halal" never reach the UI.
+  const b = (t: string) => stripHalalWord(applyAgencyName(t ?? "", agency));
   const arr = (a: string[] | undefined) => (a ?? []).map((x) => b(x));
   const brandDetails = (d: ServiceContent): ServiceContent => ({
     ...d,
@@ -212,7 +234,7 @@ export function brandSiteContent(c: SiteContent): SiteContent {
   const settings: Record<string, string> = { ...c.settings };
   for (const [k, v] of Object.entries(settings)) {
     if (!v || k === "agency_name" || k.endsWith("_url") || k.endsWith("_email") || k === "logo_url") continue;
-    settings[k] = applyAgencyName(v, agency);
+    settings[k] = stripHalalWord(applyAgencyName(v, agency));
   }
   return {
     settings,
@@ -254,7 +276,7 @@ export function setting(
   if (key === "agency_name" || key.endsWith("_url") || key.endsWith("_email") || key === "logo_url") {
     return raw;
   }
-  return applyAgencyName(raw, getAgencyName(s));
+  return stripHalalWord(applyAgencyName(raw, getAgencyName(s)));
 }
 
 export function parseStats(raw: string | undefined): { value: string; label: string }[] {

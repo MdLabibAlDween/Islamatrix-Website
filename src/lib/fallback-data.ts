@@ -13,7 +13,7 @@ export const FALLBACK_SERVICES: Service[] = [
 ];
 
 export const FALLBACK_TEAM: TeamMember[] = [
-  { id: "t0", name: "Md Labib Al Dween", role: "Founder & Marketing Strategist", service_slug: null, photo_url: "", bio: "Md Labib Al Dween is the founder and marketing strategist at Islamatrix. Our agency offers Halal business solutions exclusively for Muslim businessmen — you share your goal once, and he plans, executes, and delivers it for you strictly according to Shariah.", specialties: ["Strategy", "Client Success", "Paid Ads"], email: "labib@labibaldween.com", whatsapp: "", portfolio_url: "https://labibaldween.com", order_index: 0, is_active: true, is_founder: true },
+  { id: "t0", name: "Md Labib Al Dween", role: "Founder & Marketing Strategist", service_slug: null, photo_url: "", bio: "Md Labib Al Dween is the founder and marketing strategist at Islamatrix. Our agency offers business solutions exclusively for Muslim businessmen — you share your goal once, and he plans, executes, and delivers it for you strictly according to Shariah.", specialties: ["Strategy", "Client Success", "Paid Ads"], email: "labib@labibaldween.com", whatsapp: "", portfolio_url: "https://labibaldween.com", order_index: 0, is_active: true, is_founder: true },
 ];
 // No individual profiles are published on the homepage — all work is presented
 // as managed by the agency in one place. The managers below appear ONLY on
@@ -80,7 +80,7 @@ Questions about privacy? Email {{email}}.`;
 export const FALLBACK_TERMS_UPDATED = "September 2026";
 
 export const FALLBACK_TERMS_BODY = `## Services and quotes
-Islamatrix provides Halal creative, technical, and marketing services exclusively for Muslim businessmen, including video editing, web development, lead generation and CRM, business automation, social media management, paid advertising, design, SEO, and copywriting. Every project starts with a written scope: the agreed deliverables, timeline, pricing, revision policy, and payment schedule. No work begins until you approve that scope.
+Islamatrix provides creative, technical, and marketing services exclusively for Muslim businessmen, including video editing, web development, lead generation and CRM, business automation, social media management, paid advertising, design, SEO, and copywriting. Every project starts with a written scope: the agreed deliverables, timeline, pricing, revision policy, and payment schedule. No work begins until you approve that scope.
 
 ## Strategy calls
 Strategy calls are free and carry no purchase obligation. Advice shared on a call is general guidance only — it becomes a commitment only when written into an agreed project scope.
@@ -119,7 +119,7 @@ We may update these terms; the current version on this page always applies. For 
 Questions about these terms? Email {{email}}.`;
 
 export const FIXED_FAQS: Faq[] = [
-  { id: "f0", question: "Do you offer Halal business solutions? Who can work with you?", answer: "Yes. Islamatrix offers Halal business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — from content and marketing to design, automation, and delivery.", order_index: 0, is_active: true },
+  { id: "f0", question: "Who can work with you?", answer: "We work exclusively with Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — from content and marketing to design, automation, and delivery.", order_index: 0, is_active: true },
   { id: "f1", question: "How does booking a call work?", answer: "Click the booking button and choose an available 30-minute time slot. During the call, we will discuss your goals, current challenges, and the services that may be useful. You will not be required to purchase anything during the call.", order_index: 1, is_active: true },
   { id: "f2", question: "Does your video editing follow Islamic Shariah?", answer: "Yes. Our video editing service follows Islamic Shariah, including no music where requested. We can also follow specific content, visual, and delivery guidelines provided by the client before production begins.", order_index: 2, is_active: true },
   { id: "f3", question: "Will I have to deal with multiple freelancers?", answer: "No. Our agency manages every work for you, all in one place. You share your goal once with your point of contact, and we handle the planning, execution, and delivery.", order_index: 3, is_active: true },

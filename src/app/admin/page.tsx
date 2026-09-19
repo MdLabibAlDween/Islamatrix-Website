@@ -718,7 +718,7 @@ function SEOTab({ sb, settings, onChanged, notify }: TabProps & { settings: Reco
         <h3 className="font-extrabold">Search & social preview</h3>
         <div className="mt-3 space-y-4">
           <Field label="Meta title (browser tab + Google headline)" hint="Keep under ~60 characters.">
-            <input value={vals.meta_title ?? ""} onChange={(e) => setVals({ ...vals, meta_title: e.target.value })} className={inputCls} placeholder="Islamatrix | Halal Business Solutions for Muslim Businessmen" maxLength={120} />
+            <input value={vals.meta_title ?? ""} onChange={(e) => setVals({ ...vals, meta_title: e.target.value })} className={inputCls} placeholder="Islamatrix | Business Solutions for Muslim Businessmen" maxLength={120} />
           </Field>
           <Field label="Meta description (Google snippet + link previews)" hint="Keep under ~160 characters.">
             <textarea value={vals.meta_description ?? ""} onChange={(e) => setVals({ ...vals, meta_description: e.target.value })} rows={3} className={inputCls} maxLength={320} />

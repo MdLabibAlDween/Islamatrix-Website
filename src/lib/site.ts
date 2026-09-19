@@ -47,12 +47,12 @@ export const SITE: {
   logo: "/logo.png",
   favicon: "/Favicon.png",
   // Hero (SEO: H1 states the offer, creative line kept as secondary)
-  eyebrow: "Halal Business Solutions for Muslim Businessmen — strictly according to Shariah",
-  heroTitle: "One Halal Digital Growth Agency for Muslim Businesses",
-  heroTitleHighlight: "Halal Digital Growth Agency",
+  eyebrow: "Business Solutions for Muslim Businessmen — strictly according to Shariah",
+  heroTitle: "One Digital Growth Agency for Muslim Businesses",
+  heroTitleHighlight: "Digital Growth Agency",
   heroCreativeLine: "Let's Bring Life To Your Business",
   heroSubtitle:
-    "Islamatrix offers Halal business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — every work managed for you, all in one place.",
+    "Islamatrix offers business solutions exclusively for Muslim businessmen. We only work with Muslim customers because every service is delivered strictly according to Shariah — every work managed for you, all in one place.",
   heroTrustLine:
-    "Talk with a manager, explain your goals, and get a practical Halal plan for your next stage of growth.",
+    "Talk with a manager, explain your goals, and get a practical plan for your next stage of growth.",
 };

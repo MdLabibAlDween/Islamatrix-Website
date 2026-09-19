@@ -46,7 +46,7 @@ export default async function Home() {
     url: SITE.url,
     email,
     description:
-      "Islamatrix offers Halal business solutions exclusively for Muslim businessmen — video editing, web development, lead generation, automation, marketing, design, SEO, and copywriting, all strictly according to Shariah, every work managed for you, all in one place.",
+      "Islamatrix offers business solutions exclusively for Muslim businessmen — video editing, web development, lead generation, automation, marketing, design, SEO, and copywriting, all strictly according to Shariah, every work managed for you, all in one place.",
   };
 
   const websiteJson = {
@@ -98,7 +98,7 @@ export default async function Home() {
         eyebrow={setting(s, "sec_services_eyebrow", "Our Digital Business Services")}
         title={setting(s, "sec_services_title", "Everything Your Business Needs to Grow Online")}
         highlight={setting(s, "sec_services_highlight", "Grow Online")}
-        sub={setting(s, "sec_services_sub", "From content production to lead generation, Islamatrix brings Halal skills, strategy, and execution for Muslim businesses under one roof — strictly according to Shariah.")}
+        sub={setting(s, "sec_services_sub", "From content production to lead generation, Islamatrix brings skills, strategy, and execution for Muslim businesses under one roof — strictly according to Shariah.")}
         agencyName={agencyName}
       />
       <PricingSection
@@ -167,9 +167,9 @@ export default async function Home() {
       <BookingSection
         calendlyUrl={calendlyUrl}
         email={email}
-        title={setting(s, "sec_booking_title", "Ready to Grow Your Halal Business?")}
-        highlight={setting(s, "sec_booking_highlight", "Halal Business?")}
-        sub={setting(s, "sec_booking_sub", "Islamatrix offers Halal business solutions exclusively for Muslim businessmen — tell us what your business needs and we will create a clear, Shariah-compliant plan for you.")}
+        title={setting(s, "sec_booking_title", "Ready to Grow Your Business?")}
+        highlight={setting(s, "sec_booking_highlight", "Your Business?")}
+        sub={setting(s, "sec_booking_sub", "Islamatrix offers business solutions exclusively for Muslim businessmen — tell us what your business needs and we will create a clear, Shariah-compliant plan for you.")}
         services={services}
         agencyName={agencyName}
       />

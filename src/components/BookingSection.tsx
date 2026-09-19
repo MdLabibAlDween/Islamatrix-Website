@@ -56,7 +56,7 @@ export default function BookingSection({
           </div>
 
           <ul className="mt-6 text-sm text-zinc-300 space-y-2 border-t border-white/10 pt-5">
-            <li>✓ Halal Business Solutions for Muslim Businessmen</li>
+            <li>✓ Business Solutions for Muslim Businessmen</li>
             <li>✓ Exclusively for Muslim customers — strictly according to Shariah</li>
             <li>✓ No commitment — free consultation</li>
             <li>✓ Talk directly with a manager</li>

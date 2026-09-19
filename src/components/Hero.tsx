@@ -47,7 +47,7 @@ export default function Hero({
         </h1>
         <p className="mt-4 text-lg sm:text-xl font-bold text-gradient">{creativeLine}</p>
         <div className="mt-8 inline-flex max-w-3xl items-center justify-center gap-2 rounded-2xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-3 text-xs sm:text-sm font-semibold text-emerald-100">
-          <span>Offering Halal Business Solutions to Muslim Businessmen — exclusively for Muslim customers, working strictly according to Shariah.</span>
+          <span>Offering Business Solutions to Muslim Businessmen — exclusively for Muslim customers, working strictly according to Shariah.</span>
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -85,7 +85,7 @@ export function ServicesGrid({ services, eyebrow, title, highlight, sub, agencyN
   const t = title ?? "Everything Your Business Needs to Grow Online";
   const hl = highlight ?? "Grow Online";
   const DEFAULT_SUB =
-    "From content production to lead generation, Islamatrix brings the skills, strategy, and execution your business needs under one roof — Halal solutions, strictly according to Shariah.";
+    "From content production to lead generation, Islamatrix brings the skills, strategy, and execution your business needs under one roof — strictly according to Shariah.";
   const displaySub = sub ?? applyAgencyName(DEFAULT_SUB, agencyName);
   return (
     <section id="services" className="px-5 py-10 min-h-screen flex items-center scroll-mt-20">

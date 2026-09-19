@@ -112,7 +112,7 @@ export function Footer({ agencyName, calendlyUrl, copyrightText, footerText, log
   const year = new Date().getFullYear();
   const line = copyrightText?.trim() || `© ${year} ${agencyName}. All rights reserved.`;
   const DEFAULT_FOOTER =
-    "Islamatrix offers Halal business solutions exclusively for Muslim businessmen — helping businesses build, market, automate, and protect their online presence strictly according to Shariah, all in one place.";
+    "Islamatrix offers business solutions exclusively for Muslim businessmen — helping businesses build, market, automate, and protect their online presence strictly according to Shariah, all in one place.";
   const displayFooter = footerText ?? applyAgencyName(DEFAULT_FOOTER, agencyName);
   return (
     <footer className="px-5 pb-10 pt-6">
