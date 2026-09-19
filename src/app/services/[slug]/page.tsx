@@ -227,7 +227,7 @@ export default async function ServicePage({
         )}
 
         <div className="mt-14">
-          <h2 className="text-xl font-extrabold text-center">Explore related services</h2>
+          <h2 className="text-xl font-extrabold text-center">Explore Other Services</h2>
           <div className="mt-4 flex flex-wrap justify-center gap-2">
             {services.filter((x) => x.slug !== slug).map((x) => (
               <Link
