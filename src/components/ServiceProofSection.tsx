@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import type { GalleryKind, PortfolioItem, Service, WorkSample } from "@/lib/types";
 import Reveal from "./Reveal";
 import {
@@ -227,6 +228,10 @@ function PortfolioLightbox({ item, serviceTitle, onClose }: {
   serviceTitle: string;
   onClose: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -247,7 +252,9 @@ function PortfolioLightbox({ item, serviceTitle, onClose }: {
   const original = item.embed_url || item.image_url;
   const kindLabel = yt || videoFile ? "Video" : drive ? "File" : website ? "Website" : image ? "Image" : "Sample";
 
-  return (
+  if (!mounted || typeof document === "undefined") return null;
+
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 backdrop-blur-sm" onClick={onClose} role="dialog" aria-modal="true" aria-label={`${item.title} large view`}>
       <div className="pop-in max-h-[92vh] w-full max-w-5xl overflow-y-auto rounded-3xl border border-white/15 bg-[#0b0b0b]" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3.5">
@@ -301,7 +308,8 @@ function PortfolioLightbox({ item, serviceTitle, onClose }: {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -415,12 +423,18 @@ function Lightbox({ sample, position, total, serviceTitle, onClose, onPrev, onNe
   onPrev: () => void;
   onNext: () => void;
 }) {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   const meta = KIND_META[sample.kind];
   const yt = sample.kind === "video" ? getYouTubeId(sample.url) : null;
   const drive = !yt ? getDriveId(sample.url) : null;
   const directVideo = sample.kind === "video" && !yt && !drive && (isVideoFile(sample.url) || sample.url.trim() !== "");
 
-  return (
+  if (!mounted || typeof document === "undefined") return null;
+
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/92 p-4 backdrop-blur-sm" onClick={onClose} role="dialog" aria-modal="true" aria-label={`${sample.title} large view`}>
       <div className="pop-in w-full max-w-5xl overflow-hidden rounded-3xl border border-white/15 bg-[#0b0b0b]" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between gap-3 border-b border-white/10 px-5 py-3.5">
@@ -465,6 +479,7 @@ function Lightbox({ sample, position, total, serviceTitle, onClose, onPrev, onNe
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
